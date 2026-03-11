@@ -1,0 +1,20 @@
+<p>about worksdfs!</p>
+<button class="btn btn-outline-dark p-3" (click)="increment()">about button inc</button>
+<button class="btn btn-outline-danger px-3" (click)="close()">close</button>
+<div>
+
+    <ng-content select="app-card"></ng-content> 
+    <!-- app-card component select kar rakha hai direct -->
+    <ng-content select="[attr]">Default fourth content</ng-content>
+    <!-- attribute selectro -->
+    <ng-content select="#first"></ng-content>
+    <ng-content select=".second"></ng-content>
+    <ng-content select=".third">Default third content</ng-content>
+    <ng-content select="[base]"></ng-content>
+    <!-- ngProjectAs selector -->
+</div>
+
+<div id="lifecycle">
+    <p>Component Life Cycle</p>
+    <button>click</button>
+</div>

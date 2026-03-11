@@ -1,0 +1,14 @@
+
+:host{
+    ::ng-deep{
+
+        background-color: rgb(249, 249, 249);
+        display: block;
+    
+    }
+}
+
+#lifecycle{
+    background-color: red;
+    padding:12px ;
+}

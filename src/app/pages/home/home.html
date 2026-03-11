@@ -1,0 +1,418 @@
+<h1>{{manConService.getMasterName()}}</h1>
+<h2>{{title()}}</h2>
+
+    @for(item of getData; track item)
+    {
+      <li>{{item}}</li>  
+    }@empty {
+        <li>Empty Basic data service Di</li>
+    }
+
+
+<button (click)="addData()" >addData</button>
+<button (click)="getDataFun()">getData</button>
+
+<p>injection token examples</p>
+
+<span>{{apiurl}}</span>
+
+<button class="btn btn-outline-success p-2" (click)="setLocalStorage()">setLocalStorage_Using_Injection_Token_Services</button>
+
+<p>{{"Api url = " + appConfig.apiUrl + " , "+"userName = " + appConfig.name}}</p>
+
+<style>
+    #maindiv img{
+    
+        box-sizing: border-box;
+        border: 2px solid black;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<div class="position-relative border border-danger d-flex flex-wrap justify-content-around align-items-center align-content-between"  id="maindiv">
+     <!-- <img class="img-fluid" ngSrc="/images/WinDark.png" alt="window Images" priority width="300" height="300"> -->
+     <!-- <img class="img-fluid position-absolute" ngSrc="/images/WinDark.png" alt="window Images" sizes="100vw" priority fill> -->
+    <!-- priority ka sath loading use nahi ka sakte kyu ki priority lagane ka bad sabse phele lcp me yahi load hoga or lazy loading ka nature hai viewport ma anne ka bad load kare -->
+     <img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     >
+      <img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     ><img class="object-fit-cover" ngSrc="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" sizes="50vw" width="350" height="350" alt="testimgage" decoding="async" 
+     placeholder="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4"
+     [placeholderConfig]="{blur:true}"
+     loading="lazy"
+     >
+    
+</div>
+<br><br>
+<h3 class="text-primary">value = {{count()}}</h3>
+<h3 class="text-primary">double-count = {{doublecount()}}</h3>
+
+<!-- center div content and space betwen -->
+<div class="container border p-3 d-flex justify-content-around">
+
+    <button class="btn btn-outline-success d-block w-25" (click)="counter('inc')">Increase</button>
+    <button class="btn btn-outline-success w-25" (click)="counter('dec')">decrease</button>
+    <button class="btn btn-outline-danger w-25" (click)="counter('reset')">reset</button>
+</div>
+
+<div class="border p-3 container">
+    <p>
+        selected item:
+        <span class="text-success fw-bold" style="font-size: 20px;">{{selecteditem()}}</span>
+    </p>
+    <button (click)="changeCategory()">Change List</button>
+
+</div>
+
+<div class="border container-fluid p-3">
+    <div class="border border-success p-3 w-50 rounded-2 shadow-lg" style="height: 24rem;">
+        <div style="position: relative; display: flex;">
+            @if(userResource.isLoading()) {
+            
+                <div class="position-absolute top-50 left-50">
+
+                    <span class="spinner-grow spinner-grow-sm" aria-hidden="true" ></span>
+                    <span role="status" class="text-danger">Loading...</span>
+                </div>
+         
+     
+            }
+            @if(userResource.error()) {
+
+            <span>{{userResource.error()}}</span>
+            }
+            @if (userResource.hasValue()) {
+                 <img (click)="openFullImage()" [ngSrc]="userResource.value()[userId()].download_url"  height="350" width="350" alt="testing image" title="testing_api" loading="lazy" decoding="async">
+            <div>
+                <ul>
+               
+                    <li>Id : {{userResource.value()[userId()].id}}</li>
+                    <li>Author : {{userResource.value()[userId()].author}}</li>
+                    <li>completed: {{userResource.value().completed}}</li>
+                </ul>
+               
+            </div>
+            }
+        </div>
+        
+        
+    </div>
+    <br>
+    <br>
+    <div class="d-flex" style="gap: 10px;">
+
+        <button class="btn btn-outline-success px-3" [disabled]="disabled()" (click)="changeUserID()">Next</button>
+        <button class="btn btn-outline-success px-3" (click)="userResource.reload()">Refresh</button>
+    </div>
+</div>
+
+<!-- single way binding parent to child using input -->
+<!-- <app-navbar [value]="50"></app-navbar> -->
+<!-- two way binding -->
+<app-about [(value)]="volume"></app-about>
+<p>{{volume()}}</p>  
+<!-- volume value control child increment button -->
+
+<app-about (pannelClose)="panel($event)">
+
+    <h2 #localref id="first">Lorem, ipsum dolor.</h2>
+           <app-card></app-card>
+           <app-card></app-card>
+           <app-card></app-card>
+           <app-card></app-card>
+   <h4 class="second">Lorem ipsum dolor sit.</h4>
+    <h5 attr>attribute selector content[]</h5>
+    <h4 ngProjectAs="[base]">ng project as content</h4>
+</app-about>
+
+<div id="demo" #demo>demo</div>
+<!-- <ng-template #ngtemp>
+   <h1>this text is ng template</h1>
+</ng-template> -->
+
+<ng-container *ngComponentOutlet="getComponent(); inputs:grettingInputs()" >
+</ng-container>
+{{"UserName: "+grettingInputs().name + " age : " + grettingInputs().age}}
+
+<ng-template>
+    <h1>template data</h1>
+</ng-template>
+<button (click)="loadComponent()">Load component</button>
+<button (click)="unloadComponent()">unload component</button>
+<ng-template #showtemplate>
+    <div class="border-2 border-success">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quia reprehenderit aliquid architecto ipsum quo labore animi dignissimos laborum repellat, totam consequatur. Veritatis minus quidem quaerat dolorum, iste odio perferendis?</p>
+    </div>
+</ng-template>
+
+<!-- template ko aise bhi render kar sakte hai ngtemplateoutlet se bhi or viewcontainerRef se bhi viewContainerRef ko inject kar ke vcr.createEmbeddedView(this.template) check null before use it -->
+@if (true) {
+  <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+}
+
+<ng-template #myTemplate>
+  <p>Reusable Content</p>
+</ng-template>
+
+<button [disabled]="isDisabled()" [style.color]="'red'">Binding-Dynamic-Attributes-HTML_Element</button>
+<!-- css class binding and style binding example -->
+<div 
+class="" 
+[class.isVisible]="isActive()"
+[class]="CustomUtility"
+[style.font-size.px]="40"
+[style.background-color]="'blue'"
+[style.color]="'white'"
+
+><p> Test Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum debitis incidunt, officiis nobis quasi dignissimos nihil voluptatem reprehenderit illum modi dolorum perferendis corrupti accusamus distinctio, consectetur labore veritatis inventore. Voluptatibus?</p></div>
+<input type="text" (keydown)="updateField($event)" placeholder="Enter text" />
+
+<!-- declare variable -->
+ <h3>
+    <!-- CURRENCY pipe with pass argument/parameter-->
+     {{currency | currency :'INR'}} 
+     {{'2026-02-26' | date : 'fullDate' : 'EN-IN'}}
+     {{ decistr | number }}
+
+ </h3>
+ <h4>FullName: {{names().firstname + ' ' + names().lastname | titlecase}}</h4>
+ {{'lorem ipsum dolar check custom pipe wrking or not' | customPipe : 'upperCase'}}
+ <br>
+
+<ng-container [ngTemplateOutlet]="loadTemplateDynamic()"></ng-container>
+<ng-template #test1>
+    <h1>Test 1 template</h1>
+</ng-template>
+<ng-template #test2>
+    <h1>Test 2 temp</h1>
+</ng-template>
+
+@let status = user.status;
+
+@if(status){
+    <h1>status is true</h1>
+}@else {
+
+    <h1>status is false</h1>
+}
+
+@defer{
+    <app-address></app-address>
+}
+
+@let testdata = dynamic;
+<h1 #clickmeaction>click me action</h1>
+<!-- @defer (on timer(6s),interaction,viewport) { -->
+<!-- @defer(on hover(templateref),interaction(templateref),viewport(templateref),time(550ms),idle;prefetch on idle) -->
+@defer(on hover(clickmeaction),interaction; prefetch on idle ){
+    <h1>{{testdata()}}</h1>
+}@placeholder (minimum 500ms){
+    <button>load test data</button>
+}@loading(after 501ms;minimum 4s) {
+    <h1>loading...</h1>
+}
+<label for="red">Red </label>
+<input type="radio" id="red" name="colors"  (click)="dynamicColor.set('red')">
+<br>
+<label for="yellow">yellow </label>
+<input type="radio" id="yellow" name="colors" (click)="dynamicColor.set('yellow')">
+<br>
+<label for="violet">violet </label>
+<input type="radio" id="violet" name="colors" (click)="dynamicColor.set('violet')">
+
+
+
+<div [appHighlight]="dynamicColor()">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta totam nihil quae, exercitationem cum deserunt at aperiam magnam reiciendis corrupti illo sint error dolores suscipit dolor unde odit, nostrum laboriosam.
+    <br>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem soluta atque quos voluptatem vel natus! Quo animi doloremque odio sed delectus consectetur consequatur velit obcaecati, est, repellat suscipit consequuntur laborum.
+</div>
+
+
+<ng-template appSelect [selectFrom]="sourceShow">
+    <h4>montu Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis earum nulla tenetur facilis ea minima adipisci dolore aut iste explicabo cum reiciendis dignissimos ullam, est cupiditate, at id! Saepe vel cupiditate, fuga perferendis cum aliquid ducimus doloribus exercitationem voluptate odit.</h4>
+</ng-template>
+
+<ng-template appSelect [selectFrom]="sourceShow">
+    <h4>kharb Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis earum nulla tenetur facilis ea minima adipisci dolore aut iste explicabo cum reiciendis dignissimos ullam, est cupiditate, at id! Saepe vel cupiditate, fuga perferendis cum aliquid ducimus doloribus exercitationem voluptate odit.</h4>
+</ng-template>
+
+<!-- <div class="container border border-danger position-relative" style="height: 20rem;"> -->
+
+<!-- <div
+  style="position:relative; height:300px; border:2px solid red;">
+
+  <img
+    ngSrc="/images/WinDark.png"
+    alt="Fill Example"
+    fill
+    sizes="100vw"
+    style="object-fit: cover;">
+
+</div> -->

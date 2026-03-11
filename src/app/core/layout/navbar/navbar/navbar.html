@@ -1,0 +1,86 @@
+<div class="container-fluid pt-2">
+    <nav class="">
+        <ul class="d-flex list-unstyled gap-3">
+            <style>
+                a {
+                    text-decoration: none !important;
+                    color: rgb(0, 0, 0);
+                    font-size: larger;
+                }
+
+                .active {
+                    background-color: red;
+                }
+
+                #child:hover #children {
+                    /* display: block!important; */
+                    /* border: 2px solid black; */
+                    list-style: none;
+                    justify-content: center;
+                    display: block !important;
+                    box-sizing: border-box;
+                    padding: 0px;
+
+                }
+
+                #children li a {
+                    padding: 8px 20px;
+                }
+
+                #children li {
+
+                    /* border-radius: 4px; */
+
+                    /* border: 1px solid black; */
+                    border: 1px solid black;
+                    box-sizing: border-box;
+                    transition: all 400ms ease-in-out;
+
+                }
+
+                #children li:hover {
+                    background-color: rgb(36, 242, 0);
+                    transition: all 400ms ease-in-out;
+                }
+
+                .active2 {
+                    background-color: orange;
+                }
+            </style>
+            <li> <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+            <li> <a routerLink="/about" routerLinkActive="active">About</a></li>
+            <li> <a routerLink="/card" routerLinkActive="active">Card</a></li>
+            <li id="child" class="position-relative"> <a routerLink="/setting" routerLinkActive="active">Setting</a>
+                <ul id="children" class="d-none rounded text-center position-absolute">
+                    <li routerLinkActive="active2"><a routerLink="setting/childA">ChildA</a></li>
+                    <li routerLinkActive="active2"><a [routerLink]="['setting/childB']" fragment="viewMode2">ChildB</a></li>
+
+                    <!-- example of route parameters yahe par userid variable hai ts file me-->
+                    <!-- <li routerLinkActive="active2"><a  [routerLink]="['setting/childB',userId]">ChildB</a></li> -->
+
+                    <!-- query parameters -->
+                    <!-- <li routerLinkActive="active2"><a  [routerLink]="['setting/childB']" [queryParams]="{
+                        userId: 1,
+                        userName:'test'
+                        }">ChildB</a></li> -->
+
+                    <!-- routerlink se params or queryparams both -->
+                    <!-- <li routerLinkActive="active2"><a [routerLink]="['setting/childB',userId]" [queryParams]="{
+                            userId:1,
+                            name:'Montu'
+                        }"
+                        fragment="teamSecion"  ye static hai 
+                        [fragment]="teamsecion" ye dynamic hai variable ts file se aye ga config file withinmemeoryScrolling enable karni hogi                        
+                        >ChildB</a></li> -->
+
+
+                </ul>
+            </li>
+
+            <!-- <li><a href=""></a></li> -->
+
+            <!-- <a [routerLink]="['/card',userid]" routerLinkActive="active">card</a>  -->
+            <!-- [routerLink] with property binding isme dynamic url parameter pass hote hai without square bracket static hai -->
+        </ul>
+    </nav>
+</div>

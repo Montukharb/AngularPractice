@@ -1,0 +1,86 @@
+<p>setting works!</p>
+
+<input type="text" [formControl]="name">
+   <input type="email">
+   <button (click)="getData()">submit</button>
+
+
+   <!-- (submit)="submitCapture()"  -->
+    <!-- submit event browser ki dom ka default event hai ye angular ka nahi iska use karna thik nahi hoga kyuki broswer refresh ho sakte hai use (ngSubmit) form submit angular event -->
+   <form [formGroup]="formControl" (ngSubmit)="submitData()" >
+      <input type="text" formControlName="userName">
+      <input type="email" formControlName="email">
+      <button type="submit" [disabled]="!formControl.valid">submit</button>
+   </form>
+
+
+   <form [formGroup]="addressGroup" (ngSubmit)="addressGroupData()">
+      <input type="text" placeholder="street" formControlName="street">
+      <input type="text" placeholder="city" formControlName="city">
+      <input type="text" placeholder="block" formControlName="block">
+       
+      <ng-container [formGroup]="addressGroup.controls.pincode"]>
+         <input type="text" placeholder="Village pincode" formControlName="villagePinCode">
+         <input type="text" placeholder="State pincode" formControlName="statePinCode">
+         <input type="text" placeholder="Country pincode" formControlName="countryPinCode">
+
+      </ng-container>
+      <button type="submit">submit address</button>
+   </form>
+
+   <hr><hr>
+
+   <!-- <p>Form status {{formbuilderGroup.statusChanges | async}}</p> -->
+   <p>Form status {{formbuilderGroup.status}}</p>
+   <form [formGroup]="formbuilderGroup" (ngSubmit)="formBuilderSubmit()">
+      @if(errorhandler.invalid)
+      {
+         <p style="background-color: rgb(135, 0, 0); letter-spacing: 1.5px;" class=" text-white p-3 border border-danger w-25 m-lg-2 rounded fw-bolder text-center">All fields is required</p>
+      }   
+      <input type="text" placeholder="userName" formControlName="userName">
+      <input type="email" placeholder="email" formControlName="email">
+      <input type="number" placeholder="phoneNumber" formControlName="phoneNumber">
+       
+      <ng-container [formGroup]="formbuilderGroup.controls.address">
+          <input type="text" placeholder="street" formControlName="street">
+          <input type="text" placeholder="city" formControlName="city">
+          <input type="text" placeholder="block" formControlName="block">
+      </ng-container>
+      <button type="submit" [disabled]="!formbuilderGroup.valid" class="btn btn-outline-success">builder Submit</button>
+   </form>
+
+
+
+   <!-- dynamic form creation used add skill in our profile -->
+   <form [formGroup]="formbuilderGroup" (ngSubmit)="saveSkills()">
+
+      <div formArrayName="aliases">   
+         <!-- formArrayName eak string lege jo arrayname hai -->
+         <h2>Aliases</h2>
+         <button type="button" class="btn btn-outline-primary" (click)="addAlias()">Add Skills</button>
+         
+         @for (alias of aliase.controls; track $index; let i = $index) {
+            <div>
+               <!-- The repeated alias template -->
+               <label class="fadeIn" for="alias-{{ i }}">Skill {{i+1}}:</label>
+               <input class="fadeIn" id="alias-{{ i }}" type="text" [formControlName]="i" />
+            </div>
+         }
+      </div>
+      <button type="submit" class="btn btn-outline-primary"  [disabled]="!aliase.valid">save skills</button>
+      <button type="reset" class="btn btn-outline-danger" > Reset </button>
+      <button type="button" (click)="removeAliase()" [disabled]="aliase.length <= 1">clear Field</button>
+      
+   </form>
+   
+   <form>
+      <label for="select-file">Select File</label>
+      <input type="file" id="select-file" multiple accept="image/*,.pdf," #files >
+      
+      <progress [value]="20" max="100" style="width: 100%;"></progress>
+   </form>
+   
+   <canvas width="500" height="500" >hello</canvas>
+   <a href=" " download="https://sarkariresult.com.cm/wp-content/uploads/2026/02/CEN_-09-2025_English.pdf" target="_blank" >download</a>
+
+   <router-outlet/>

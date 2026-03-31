@@ -12,12 +12,19 @@ import { PLATFORM_ID } from '@angular/core';
 import { APP_CONFIG } from './core/tokens/app.token';
 import { USER_DETAILS } from './core/tokens/userDetails.token';
 import { Router } from '@angular/router';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { headerSetterInterceptor } from './core/interceptors/header-setter-interceptor';
 // import { provideLoadingBarRouter } from '@ngx-loading-bar/router';
 // npm install @ngx-loading-bar/core @ngx-loading-bar/router --save
 export const appConfig: ApplicationConfig = {
   providers: [
-   provideHttpClient(withFetch()),
+   provideHttpClient(
+    withFetch(),
+    withInterceptors([  //interceptors register kar diya hai
+         headerSetterInterceptor, //ab ye har request ka header ko change kar dega .
+    ])
+  
+  ), //http client enable here with modern fetch method
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes,
       

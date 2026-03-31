@@ -18,3 +18,17 @@
     <p>Component Life Cycle</p>
     <button>click</button>
 </div>
+
+<div id="bigBox">
+
+    <div id="drageMe" cdkDragBoundary="#bigBox" cdkDrag>Drage me around</div>
+</div>
+
+<div id="list" class="example-list" cdkDropList (cdkDropListDropped)="drop($event)">
+     
+    @for(movie of movies; track movie)
+    {
+        <div class="example-box" cdkDrag> {{movie}}</div>
+    }
+
+</div>

@@ -31,6 +31,7 @@ export class ChildB {
   // // protected resolverData = JSON.parse(this.strigifydata();
   // parseddata = () => JSON.parse(this.strigifydata());
    isNavigation = computed(()=>{
+      
        return !!this.router.currentNavigation();  //return kare ga bas kuch object ya null is liya ise boolean me convert kate hai !! double exclamation mark se
    })
 
@@ -39,7 +40,7 @@ export class ChildB {
    //Router Navigation how to subscribe
 
    constructor()
-  {  //router class level par inject kiya hai
+  {  //router class level par inject kiya hai inn events se top bar loader bhi show kar sakte hai
     this.router.events.subscribe((event)=>{
       if(event instanceof NavigationStart)
       {

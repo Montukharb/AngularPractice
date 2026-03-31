@@ -1,6 +1,7 @@
 import { Component, computed, effect, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators, ValueChangeEvent } from '@angular/forms';
+import { ServerRequests } from '../../../services/server-requests';
 @Component({
   selector: 'app-setting',
   imports: [RouterOutlet,ReactiveFormsModule],
@@ -11,7 +12,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Va
 export class Setting implements OnInit{
 
   router = inject(ActivatedRoute); //provide reactive 
-
+  server = inject(ServerRequests);
   
   ngOnInit()
   {

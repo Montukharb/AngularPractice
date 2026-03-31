@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { HttpClient, HttpHeaders, HttpParams, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpEventType, httpResource } from '@angular/common/http';
 import { inject, Injectable, PLATFORM_ID } from '@angular/core';
 
 @Injectable({
@@ -103,7 +103,7 @@ export class ServerRequests {
   // yaha file upload ho rahi hai 
   uploadFile() {
     const formData = new FormData();
-    formData.append('file', this.file);
+    formData.append('file', this.file);  //only one file upload
 
     this.http.post('API_URL', formData, {
       reportProgress: true, //report progress true karne se http progress event mil zate hai
@@ -196,12 +196,36 @@ pdfUrl:any;
 se = this.http.get('/api/report',{responseType:'blob'})
 .subscribe({
   next:(blob)=>{
+      if(isPlatformBrowser(this.platformId))
+      {
 
-    const url = window.URL.createObjectURL(blob);
-     this.pdfUrl = url
-     URL.revokeObjectURL(url); //cleanup 
+        const url = window.URL.createObjectURL(blob);
+        this.pdfUrl = url
+        URL.revokeObjectURL(url); //cleanup 
+      }
   }
 });   
+
+
+public employee = httpResource<any[]>(() => 'https://jsonplaceholder.typicode.com/users');
+showusers():void{
+  if(this.employee.isLoading())
+  {
+    console.log('loading... employe data')
+  }
+ else if(this.employee.hasValue())
+  {
+    // const data = JSON.stringify(this.employee.value());
+    // console.log(JSON.parse(data)[0])
+    console.log(this.employee.value()[0])
+  }
+  else if(this.employee.error())
+  {
+    console.log(this.employee.error())
+  }
+}
+
+
 
 }  //class end
 

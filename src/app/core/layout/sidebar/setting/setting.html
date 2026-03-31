@@ -56,7 +56,7 @@
 
       <div formArrayName="aliases">   
          <!-- formArrayName eak string lege jo arrayname hai -->
-         <h2>Aliases</h2>
+         <!-- <h2>Aliases</h2> -->
          <button type="button" class="btn btn-outline-primary" (click)="addAlias()">Add Skills</button>
          
          @for (alias of aliase.controls; track $index; let i = $index) {
@@ -82,5 +82,10 @@
    
    <canvas width="500" height="500" >hello</canvas>
    <a href=" " download="https://sarkariresult.com.cm/wp-content/uploads/2026/02/CEN_-09-2025_English.pdf" target="_blank" >download</a>
+
+
+   <button (click)="server.showusers()">Fetch Employee Data in console</button>
+   <div class="loader"></div>
+   <div class="loader1"></div>
 
    <router-outlet/>

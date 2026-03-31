@@ -1,10 +1,10 @@
 import { afterNextRender, Component, contentChild, contentChildren, ElementRef, inject, model, ModelSignal, OnInit, output, Signal } from '@angular/core';
 import { Card } from '../card/card';
-
+import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [CdkDrag, CdkDropList],
   templateUrl: './about.html',
   styleUrl: './about.css',
 
@@ -56,6 +56,26 @@ export class About implements OnInit {
     afterNextRender(() => {
       console.log("host element = ", this.hostElement.nativeElement.querySelector("#lifecycle"))
     })
+  }
+
+
+  protected movies:String[] = [
+    'The Shawshank Redemption',
+    'The Godfather',
+    'The Dark Knight',
+    '12 Angry Men',
+    "Schindler\'s List",
+    'The Lord of the Rings: The Return of the King',
+    'Kgf',
+    'Bahubali',
+    'Dangal',
+    'Race 3',
+    'Fata poster nikla hero',
+    'others'
+  ];
+
+  protected drop(event:CdkDragDrop<string[]>):void{
+       moveItemInArray(this.movies,event.previousIndex,event.currentIndex);  //moveItemInArray cdkDragDrop ka function hai; 
   }
 }
 

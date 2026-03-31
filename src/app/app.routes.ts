@@ -67,7 +67,7 @@ export const routes: Routes = [
             resolve: {
                userDetails: userDetailResolver,
                // yaha par userDetails key hai or userDetailResolver eak resolver function hai jo abb childb componnent ma access hoga oninit me ya fir input binding me yaha multiple resolverFn bhi ho sakte hai
-            }
+            },
 
          }
       ]

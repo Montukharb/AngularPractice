@@ -12,9 +12,9 @@ export const loginGuard: CanActivateFn = (route, state) => {
     let status = localStorage.getItem('isLoggedIn');
     if(status === 'true')
     {
-      return router.createUrlTree(['/dashboard']);
+      return router.createUrlTree(['/dashboard']);  //redirect to dashboard page
     }
-    return true;
+    return true; //login page open
   }
   return true;
 
